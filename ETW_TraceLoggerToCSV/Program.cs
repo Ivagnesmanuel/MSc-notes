@@ -12,8 +12,6 @@ namespace ETW_TraceLoggerToCSV
 {
     class Program
     {
-
-
         static void Main(string[] args)
         {
             // checks admin privileges
