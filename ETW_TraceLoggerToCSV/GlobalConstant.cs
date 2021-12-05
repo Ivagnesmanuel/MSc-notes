@@ -23,7 +23,7 @@ namespace ETW_TraceLoggerToCSV
         public static readonly string TracingEtlPath = $@"C:\ETW_TraceLoggerToCSV_data\ETW_tracingSessions\{FamilyName}_{SampleName}.etl";
 
         // out CSVs paths 
-        internal static readonly string UserName = System.IO.Path.GetFileName(System.Environment.UserName);
+        private static readonly string UserName = System.IO.Path.GetFileName(System.Environment.UserName);
         public static readonly string PrintFiles_path = $@"C:\Users\{UserName}\OneDrive\Desktop\ETW_{FamilyName}_{SampleName}_files\";
         public static readonly string PrintFiles_path_sampleOnly = PrintFiles_path + @"\sample_only\";
 
