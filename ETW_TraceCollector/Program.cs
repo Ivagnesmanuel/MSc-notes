@@ -21,7 +21,7 @@ namespace ETW_TraceCollector
                 {
                     // Try to create the directory.
                     Directory.CreateDirectory(GlobalConstant.TracingEtlPath);
-                    Console.WriteLine($"The logging directory {GlobalConstant.TracingEtlPath} was successfully created\n");
+                    Console.WriteLine($"The logging directory {GlobalConstant.TracingEtlPath} was successfully created!\n");
                 }
 
 
@@ -50,21 +50,24 @@ namespace ETW_TraceCollector
 
                 }
 
+                // minutes tracing
+                int mins = 10;
+                Thread.Sleep(1000*60*mins);
 
-                bool loop = true;
-                Console.WriteLine($"Write <STOP> to stop collecting events:");
-                while (loop)
-                {
-                    Thread.Sleep(1000);
-                    if (Console.ReadLine().Equals("STOP"))
-                        loop = false;
-                }
+                //bool loop = true;
+                //Console.WriteLine($"Write <STOP> to stop collecting events:");
+                //while (loop)
+                //{
+                //    Thread.Sleep(1000);
+                //    if (Console.ReadLine().Equals("STOP"))
+                //        loop = false;
+                //}
 
             }
             catch (UnauthorizedAccessException ex)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"Access Denied. Unauthorized ETW session creation. Try as Administrator.\nSource: {ex.Source}\nStackTrace: {ex.StackTrace}\nMessage: {ex.Message}");
+                Console.WriteLine($"Access Denied. Unauthorized ETW session creation. Try as Administrator.\n Source: {ex.Source}\n StackTrace: {ex.StackTrace}\n Message: {ex.Message}");
                 Environment.Exit(0);
             }
         }

@@ -17,21 +17,33 @@ namespace ETW_TraceLoggerToCSV.Helpers
                     Directory.CreateDirectory(GlobalConstant.PrintFiles_path);
                     Directory.CreateDirectory(GlobalConstant.PrintFiles_path_sampleOnly);
                     Console.WriteLine($"The logging directory was successfully created\n");
+                } else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine($"Take care, the directory already exist!!\n");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine($"Do you want to overwrite the content? Y/N");
+                    string input = Console.ReadLine();
+                    if (input == "N")
+                    {
+                        System.Environment.Exit(0);
+                    }
                 }
 
-                // events from all processes 
-                foreach (KeyValuePair<EventClass, string> CSVpath in GlobalConstant.GlobalCSVFileNames)
+
+                // Make files with events from all processes 
+                foreach (KeyValuePair<EventClass, (string, string)> CSVname in GlobalConstant.CSVFiles)
                 {
-                    string path = CSVpath.Value;
-                    string header = GlobalConstant.CSVFiles[CSVpath.Key].Item2;
+                    string path = GlobalConstant.PrintFiles_path + CSVname.Value.Item1;
+                    string header = CSVname.Value.Item2;
                     File.WriteAllText(path, header + "\n");
                 }
 
-                // events from the selected process only
-                foreach (KeyValuePair<EventClass, string> CSVpath in GlobalConstant.SpecificProcessCSVFileNames)
+                // Make files with events from the selected process only
+                foreach (KeyValuePair<EventClass, (string, string)> CSVname in GlobalConstant.CSVFiles)
                 {
-                    string path = CSVpath.Value;
-                    string header = GlobalConstant.CSVFiles[CSVpath.Key].Item2;
+                    string path = GlobalConstant.PrintFiles_path_sampleOnly + CSVname.Value.Item1;
+                    string header = CSVname.Value.Item2;
                     File.WriteAllText(path, header + "\n");
                 }
 

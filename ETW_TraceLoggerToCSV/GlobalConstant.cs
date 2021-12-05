@@ -17,15 +17,15 @@ namespace ETW_TraceLoggerToCSV
     {
         // sample settings
         public const string FamilyName = "";
-        public const string SampleName = "code";
+        public const string SampleName = "";
 
         // input etl path
-        public const string EtlInputFilename = "tracingSession.etl";
-        public const string TracingEtlPath = @"C:\ETW_ransomware_eventsLogger\ETW_ransomware_tracingSessions\" + EtlInputFilename;
+        public static readonly string TracingEtlPath = $@"C:\ETW_TraceLoggerToCSV_data\ETW_tracingSessions\{FamilyName}_{SampleName}.etl";
 
         // out CSVs paths 
-        public const string PrintFiles_path = @"C:\Users\ivagn\OneDrive\Desktop\ETW_" + FamilyName + "_" + SampleName + @"_files\";
-        public const string PrintFiles_path_sampleOnly = PrintFiles_path + @"\sample_only\";
+        internal static readonly string UserName = System.IO.Path.GetFileName(System.Environment.UserName);
+        public static readonly string PrintFiles_path = $@"C:\Users\{UserName}\OneDrive\Desktop\ETW_{FamilyName}_{SampleName}_files\";
+        public static readonly string PrintFiles_path_sampleOnly = PrintFiles_path + @"\sample_only\";
 
 
         // files for logging and Headers

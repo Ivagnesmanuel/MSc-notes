@@ -31,8 +31,8 @@ namespace ETW_TraceLoggerToCSV
                 foreach (KeyValuePair<EventClass, (string, string)> CSVname in GlobalConstant.CSVFiles)
                 {
                     // Item1 is the fileName
-                    string GlobalPath = GlobalConstant.PrintFiles_path + GlobalConstant.FamilyName + "_" + CSVname.Value.Item1;
-                    string SpecificPath = GlobalConstant.PrintFiles_path_sampleOnly + GlobalConstant.FamilyName + "_" + CSVname.Value.Item1;
+                    string GlobalPath = GlobalConstant.PrintFiles_path + CSVname.Value.Item1;
+                    string SpecificPath = GlobalConstant.PrintFiles_path_sampleOnly + CSVname.Value.Item1;
 
                     // populate Paths dictionaries
                     GlobalConstant.GlobalCSVFileNames.Add(CSVname.Key, GlobalPath);
@@ -45,6 +45,7 @@ namespace ETW_TraceLoggerToCSV
                     GlobalStreams.Add(CSVname.Key, new StreamWriter(GlobalPath, true));
                     SpecificProcessStreams.Add(CSVname.Key, new StreamWriter(SpecificPath, true));
                 }
+
 
 
                 // Events parsing
