@@ -16,15 +16,15 @@ namespace ETW_TraceLoggerToCSV
     class GlobalConstant
     {
         // sample settings
-        public const string FamilyName = "";
+        public const string FamilyName = "1HourTracing";
         public const string SampleName = "";
 
         // input etl path
-        public static readonly string TracingEtlPath = $@"C:\ETW_TraceLoggerToCSV_data\ETW_tracingSessions\{FamilyName}_{SampleName}.etl";
+        public static readonly string TracingEtlPath = $@"C:\ETW_TraceLoggerToCSV_data\ETW_tracingSessions\{FamilyName}{SampleName}.etl";
 
         // out CSVs paths 
         private static readonly string UserName = System.IO.Path.GetFileName(System.Environment.UserName);
-        public static readonly string PrintFiles_path = $@"C:\Users\{UserName}\OneDrive\Desktop\ETW_{FamilyName}_{SampleName}_files\";
+        public static readonly string PrintFiles_path = $@"C:\Users\{UserName}\OneDrive\Desktop\ETW_{FamilyName}{SampleName}_files\";
         public static readonly string PrintFiles_path_sampleOnly = PrintFiles_path + @"\sample_only\";
 
 
@@ -32,7 +32,7 @@ namespace ETW_TraceLoggerToCSV
         public static readonly Dictionary<EventClass, (string, string)> CSVFiles = new Dictionary<EventClass, (string, string)>()
         {
             { EventClass.ProcessStartStop, (
-                "kernelStartStopEvents.csv",
+                "kernelProcessStartStopEvents.csv",
                 "TimeStamp,ProviderName,EventName,ProcessName,ParentName,ProcessID,ParentID,CommandLine,SessionID,Flags,ExitStatus,UniqueProcessKey"
                 )},
             { EventClass.ProcessGeneric, (
