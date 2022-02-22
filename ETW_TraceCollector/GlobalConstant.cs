@@ -5,7 +5,7 @@ namespace ETW_TraceCollector
     class GlobalConstant
     {
         public const string TracingSessionName = "MyTracingSession";
-        public const string TracingEtlPath = @"C:\Program Files\ETW_TraceCollector\";
+        public const string TracingEtlPath = @"C:\Windows\ETW_TraceCollector\";
         public const string TracingEtlFilePath = TracingEtlPath + "tracingSession.etl";
 
         // LIST PROVIDERS

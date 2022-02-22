@@ -51,7 +51,7 @@ namespace ETW_TraceCollector
                 }
 
                 // minutes tracing
-                int mins = 60;
+                int mins = 10;
                 Thread.Sleep(1000*60*mins);
 
                 //bool loop = true;

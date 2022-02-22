@@ -278,20 +278,20 @@ namespace ETW_TraceLoggerToCSV
                         KernelCustomParser.LogFileInfo(RunningProcesses, data, GlobalStreams[EventClass.File], SpecificProcessStreams[EventClass.File]);
                     };
 
-                    kernelParser.FileIOQueryInfo += delegate (FileIOInfoTraceData data)
-                    {
-                        KernelCustomParser.LogFileInfo(RunningProcesses, data, GlobalStreams[EventClass.File], SpecificProcessStreams[EventClass.File]);
-                    };
+                    //kernelParser.FileIOQueryInfo += delegate (FileIOInfoTraceData data)
+                    //{
+                    //    KernelCustomParser.LogFileInfo(RunningProcesses, data, GlobalStreams[EventClass.File], SpecificProcessStreams[EventClass.File]);
+                    //};
 
-                    kernelParser.FileIOFSControl += delegate (FileIOInfoTraceData data)
-                    {
-                        KernelCustomParser.LogFileInfo(RunningProcesses, data, GlobalStreams[EventClass.File], SpecificProcessStreams[EventClass.File]);
-                    };
+                    //kernelParser.FileIOFSControl += delegate (FileIOInfoTraceData data)
+                    //{
+                    //    KernelCustomParser.LogFileInfo(RunningProcesses, data, GlobalStreams[EventClass.File], SpecificProcessStreams[EventClass.File]);
+                    //};
 
-                    kernelParser.FileIOSetInfo += delegate (FileIOInfoTraceData data)
-                    {
-                        KernelCustomParser.LogFileInfo(RunningProcesses, data, GlobalStreams[EventClass.File], SpecificProcessStreams[EventClass.File]);
-                    };
+                    //kernelParser.FileIOSetInfo += delegate (FileIOInfoTraceData data)
+                    //{
+                    //    KernelCustomParser.LogFileInfo(RunningProcesses, data, GlobalStreams[EventClass.File], SpecificProcessStreams[EventClass.File]);
+                    //};
 
 
                     kernelParser.FileIOClose += delegate (FileIOSimpleOpTraceData data)
@@ -317,16 +317,16 @@ namespace ETW_TraceLoggerToCSV
 
 
 
-                    // file IO - directories
-                    kernelParser.FileIODirEnum += delegate (FileIODirEnumTraceData data)
-                    {
-                        KernelCustomParser.LogFileIODirEvent(RunningProcesses, data, GlobalStreams[EventClass.File], SpecificProcessStreams[EventClass.File]);
-                    };
+                    //// file IO - directories
+                    //kernelParser.FileIODirEnum += delegate (FileIODirEnumTraceData data)
+                    //{
+                    //    KernelCustomParser.LogFileIODirEvent(RunningProcesses, data, GlobalStreams[EventClass.File], SpecificProcessStreams[EventClass.File]);
+                    //};
 
-                    kernelParser.FileIODirNotify += delegate (FileIODirEnumTraceData data)
-                    {
-                        KernelCustomParser.LogFileIODirEvent(RunningProcesses, data, GlobalStreams[EventClass.File], SpecificProcessStreams[EventClass.File]);
-                    };
+                    //kernelParser.FileIODirNotify += delegate (FileIODirEnumTraceData data)
+                    //{
+                    //    KernelCustomParser.LogFileIODirEvent(RunningProcesses, data, GlobalStreams[EventClass.File], SpecificProcessStreams[EventClass.File]);
+                    //};
 
 
 
